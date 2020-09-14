@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Ejercicios;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,6 +17,10 @@ namespace Practica.Controllers
 
         public ActionResult DiasDeLaSemana()
         {
+            Random ran = new Random(DateTime.Now.Millisecond);
+            int numeroAleatorio = ran.Next(1, 8);
+            string resultadoNombreDia = EjercicioEnumeraciones.ObtenerNombreDiaDeLaSemana((EjercicioEnumeraciones.DiasDeLaSemana)numeroAleatorio);
+            ViewBag.NombreDia = resultadoNombreDia;
             return View();
         }
 
