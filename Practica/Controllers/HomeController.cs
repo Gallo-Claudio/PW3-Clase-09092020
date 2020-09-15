@@ -35,11 +35,22 @@ namespace Practica.Controllers
             string salida1;
             string salida2;
             string textoInvertido = Ejercicios.EjercicioOut.InvertirTexto(textoOriginal, out salida1, out salida2);
-            
+
             @ViewBag.textoOriginal = textoOriginal;
             @ViewBag.TextoInvertido = textoInvertido;
             @ViewBag.TextoOut = salida1;
             @ViewBag.TextoOut2 = salida2;
+            return View();
+        }
+
+        public ActionResult EjercicioRef()
+        {
+            string textoOriginal = "Abracadabra";
+            string textoFinal = textoOriginal;
+            Ejercicios.EjercicioRef.TruncarTexto(ref textoFinal, 4);
+
+            @ViewBag.textoOriginal = textoOriginal;
+            @ViewBag.TextoOut = textoFinal;
             return View();
         }
     }
