@@ -54,13 +54,13 @@ namespace Practica.Controllers
             ViewBag.TextoOut = textoFinal;
             return View();
         }
-        
+
         public ActionResult EjercicioGenerics()
         {
             EjemploGenerics<ISaludar> ejemploGenerics = new EjemploGenerics<ISaludar>();
 
             List<ISaludar> animalesQueSaludan = new List<ISaludar>();
-            animalesQueSaludan.Add(new Perro() {Nombre = "Diogenes"});
+            animalesQueSaludan.Add(new Perro() { Nombre = "Diogenes" });
             animalesQueSaludan.Add(new Gato() { Nombre = "Macri" });
             animalesQueSaludan.Add(new Pez() { Nombre = "Nemo" });
 
@@ -69,5 +69,22 @@ namespace Practica.Controllers
             ViewBag.SaludoGrupal = saludo;
             return View();
         }
+
+        // SIN USAR GENERICS
+        // *****************
+        //public ActionResult EjercicioGenerics()
+        //{
+        //    EjemploGenerics ejemploGenerics = new EjemploGenerics();
+
+        //    List<ISaludar> animalesQueSaludan = new List<ISaludar>();
+        //    animalesQueSaludan.Add(new Perro() {Nombre = "Diogenes"});
+        //    animalesQueSaludan.Add(new Gato() { Nombre = "Macri" });
+        //    animalesQueSaludan.Add(new Pez() { Nombre = "Nemo" });
+
+        //    string saludo = ejemploGenerics.SaludarTodos(animalesQueSaludan);
+
+        //    ViewBag.SaludoGrupal = saludo;
+        //    return View();
+        //}
     }
 }
