@@ -1,4 +1,5 @@
 ﻿using Ejercicios;
+using Ejercicios.EjercicioGenerics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,10 +37,10 @@ namespace Practica.Controllers
             string salida2;
             string textoInvertido = Ejercicios.EjercicioOut.InvertirTexto(textoOriginal, out salida1, out salida2);
 
-            @ViewBag.textoOriginal = textoOriginal;
-            @ViewBag.TextoInvertido = textoInvertido;
-            @ViewBag.TextoOut = salida1;
-            @ViewBag.TextoOut2 = salida2;
+            ViewBag.textoOriginal = textoOriginal;
+            ViewBag.TextoInvertido = textoInvertido;
+            ViewBag.TextoOut = salida1;
+            ViewBag.TextoOut2 = salida2;
             return View();
         }
 
@@ -49,8 +50,23 @@ namespace Practica.Controllers
             string textoFinal = textoOriginal;
             Ejercicios.EjercicioRef.TruncarTexto(ref textoFinal, 4);
 
-            @ViewBag.textoOriginal = textoOriginal;
-            @ViewBag.TextoOut = textoFinal;
+            ViewBag.textoOriginal = textoOriginal;
+            ViewBag.TextoOut = textoFinal;
+            return View();
+        }
+        
+        public ActionResult EjercicioGenerics()
+        {
+            EjemploGenerics<ISaludar> ejemploGenerics = new EjemploGenerics<ISaludar>();
+
+            List<ISaludar> animalesQueSaludan = new List<ISaludar>();
+            animalesQueSaludan.Add(new Perro() {Nombre = "Diogenes"});
+            animalesQueSaludan.Add(new Gato() { Nombre = "Macri" });
+            animalesQueSaludan.Add(new Pez() { Nombre = "Nemo" });
+
+            string saludo = ejemploGenerics.SaludarTodos(animalesQueSaludan);
+
+            ViewBag.SaludoGrupal = saludo;
             return View();
         }
     }
