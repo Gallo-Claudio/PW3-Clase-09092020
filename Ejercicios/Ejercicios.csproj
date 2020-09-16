@@ -41,7 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EjercicioGenerics\EjemploGenerics.cs" />
     <Compile Include="EjercicioEnumeraciones.cs" />
+    <Compile Include="EjercicioGenerics\Gato.cs" />
+    <Compile Include="EjercicioGenerics\ISaludar.cs" />
+    <Compile Include="EjercicioGenerics\Perro.cs" />
+    <Compile Include="EjercicioGenerics\Pez.cs" />
     <Compile Include="EjercicioOut.cs" />
     <Compile Include="EjercicioRef.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
